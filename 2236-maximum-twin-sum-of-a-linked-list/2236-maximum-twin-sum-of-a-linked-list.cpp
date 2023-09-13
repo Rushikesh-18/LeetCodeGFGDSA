@@ -11,7 +11,6 @@
 class Solution {
 public:
     int pairSum(ListNode* head) {
-        ListNode *first=head;
         int maxi=INT_MIN;
         ListNode *slow=head;
         ListNode *fast=head;
@@ -33,10 +32,11 @@ public:
           if(slow != NULL){
             slow->next = prev;
         }
-        while(first && slow){
-            int every=first->val +slow->val;
+        temp=head;
+        while(temp && slow){
+            int every=temp->val +slow->val;
             maxi=max(maxi,every);
-            first=first->next;
+            temp=temp->next;
             slow=slow->next;
         }
         return maxi;
